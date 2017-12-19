@@ -4,33 +4,33 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using WebApi1.Models;
 
 namespace WEBAPI.Controllers
 {
-    [RoutePrefix("api/students")]
+   
     public class StudentsController : ApiController
     {
-         static List<Student> students = new List<Student>()
-        {
-            new Student() {Id = 1, FirstName = "Jose", LastName = "t"},
-            new Student() {Id = 2, FirstName = "Lucho", LastName = "t"},
-            new Student() {Id = 3, FirstName = "Riki", LastName = "t"},
-        };
+        static List<Students> students = new List<Students>()
+       {
+           new Students() {Id = 1, FirstName = "Lucho", LastName = "Quedaza"},
+           new Students() {Id = 2, FirstName = "Lucho", LastName = "Quedaza"},
+           new Students() {Id = 3, FirstName = "Lucho", LastName = "Quedaza"},
+       };
 
-
-        public IEnumerable<StudentsController> Get(int id)
+        public IHttpActionResult Get()
         {
-            return students.FirstOrDefault(s => s.Id == id);
+            return Ok(students);
+
         }
-
-
-        public HttpResponseMessage Post(StudentsController student)
+        public IHttpActionResult Get(int id)
         {
-            students.Add(students);
-            var response = Request.CreateResponse(HttpStatusCode.Created);
-            return response;
-
+            var student = students.FirstOrDefault(s => s.Id == id);
+            if(student == null)
+            {
+                return Content(HttpStatusCode.NotFound, "Studentin nicht brauchen");
+            }
+            return Ok(student);
         }
     }
 }
