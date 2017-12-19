@@ -1,0 +1,2 @@
+D:\Bitcoin_Wallet\Various_AspNet_Projects\WebApi1\WebApi1\obj\Debug\WebApi1.csprojResolveAssemblyReference.cache
+D:\Bitcoin_Wallet\Various_AspNet_Projects\WebApi1\WebApi1\obj\Debug\WebApi1.csproj.CoreCompileInputs.cache
