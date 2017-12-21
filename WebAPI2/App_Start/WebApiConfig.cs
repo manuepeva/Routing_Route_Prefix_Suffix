@@ -14,17 +14,17 @@ namespace WebAPI2
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "Version1",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional, controller = "StudentV1" }
-            );
+          //  config.Routes.MapHttpRoute(
+          //      name: "Version1",
+          //      routeTemplate: "api/{controller}/{id}",
+          //      defaults: new { id = RouteParameter.Optional, controller = "StudentV1" }
+          //  );
 
-            config.Routes.MapHttpRoute(
-              name: "Version2",
-              routeTemplate: "api/{controller}/{id}",
-              defaults: new { id = RouteParameter.Optional, controller = "StudentV2" }
-          );
+          //  config.Routes.MapHttpRoute(
+          //    name: "Version2",
+          //    routeTemplate: "api/{controller}/{id}",
+          //    defaults: new { id = RouteParameter.Optional, controller = "StudentV2" }
+          //);
         }
     }
 }
