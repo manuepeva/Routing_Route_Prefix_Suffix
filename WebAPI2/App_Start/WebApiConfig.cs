@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace WebAPI2
 {
@@ -12,19 +13,26 @@ namespace WebAPI2
             // Web API configuration and services
 
             // Web API routes
-            config.MapHttpAttributeRoutes();
+            config.Routes.MapHttpRoute(
+                name: "ManuelRoute",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
 
-          //  config.Routes.MapHttpRoute(
-          //      name: "Version1",
-          //      routeTemplate: "api/{controller}/{id}",
-          //      defaults: new { id = RouteParameter.Optional, controller = "StudentV1" }
-          //  );
+            config.Services.Replace(typeof(IHttpControllerSelector),
+                new Custom(config));
 
-          //  config.Routes.MapHttpRoute(
-          //    name: "Version2",
-          //    routeTemplate: "api/{controller}/{id}",
-          //    defaults: new { id = RouteParameter.Optional, controller = "StudentV2" }
-          //);
+            //  config.Routes.MapHttpRoute(
+            //      name: "Version1",
+            //      routeTemplate: "api/{controller}/{id}",
+            //      defaults: new { id = RouteParameter.Optional, controller = "StudentV1" }
+            //  );
+
+            //  config.Routes.MapHttpRoute(
+            //    name: "Version2",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional, controller = "StudentV2" }
+            //);
         }
     }
 }
